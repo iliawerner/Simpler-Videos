@@ -103,7 +103,7 @@
             display: grid;
             gap: clamp(44px, 6vw, 72px);
             justify-items: start;
-            overflow: hidden;
+            overflow: visible;
             background: #ffffff;
         }
 
@@ -527,6 +527,11 @@
             padding: 0 6px;
             transition: transform 0.2s ease, font-size 0.2s ease, color 0.2s ease;
             pointer-events: none;
+        }
+
+        .form-field textarea + label {
+            top: 18px;
+            transform: none;
         }
 
         input:focus + label,
