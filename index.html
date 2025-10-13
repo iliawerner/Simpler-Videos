@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simpler Videos – YouTube Solutions for Creators</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <style>
         :root {
             --color-bg: #f5f6f7;
@@ -401,9 +402,13 @@
             background: rgba(15, 111, 236, 0.08);
             display: grid;
             place-items: center;
-            font-weight: 600;
-            color: var(--color-accent);
-            letter-spacing: 0.08em;
+            overflow: hidden;
+        }
+
+        .about__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .about__text {
@@ -704,7 +709,9 @@
                     <h2 class="section__title" id="about-title">About</h2>
                 </div>
                 <div class="about__content">
-                    <div class="about__image" aria-hidden="true">Profile Photo</div>
+                    <div class="about__image">
+                        <img src="assets/images/Gemini_Generated_Image_wt2m0ewt2m0ewt2m.png" alt="Francesco" loading="lazy">
+                    </div>
                     <div class="about__text">
 
                         <p>For over a decade, I've been the strategic mind behind the YouTube success of some of the world's most iconic brands. My passion is helping creators and companies achieve their most ambitious goals on the platform.</p>
