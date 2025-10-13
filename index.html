@@ -96,32 +96,17 @@
         }
 
         .hero {
-            padding: 112px 0 96px;
+            padding: 132px 0 108px;
             display: grid;
-            gap: 32px;
+            gap: 36px;
             justify-items: start;
         }
 
-        .hero__eyebrow {
-            font-size: 15px;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--color-accent);
-        }
-
         .hero__title {
-            font-size: clamp(2.8rem, 6vw, 4rem);
+            font-size: clamp(3.5rem, 8vw, 5rem);
             font-weight: 700;
             letter-spacing: -0.04em;
             line-height: 1.08;
-            margin: 0;
-        }
-
-        .hero__description {
-            font-size: 17px;
-            max-width: 640px;
-            color: var(--color-muted);
             margin: 0;
         }
 
@@ -138,6 +123,18 @@
             cursor: pointer;
             text-decoration: none;
             transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        .button--ghost {
+            background: transparent;
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+        }
+
+        .button--ghost:hover,
+        .button--ghost:focus-visible {
+            background: rgba(15, 111, 236, 0.08);
+            color: var(--color-text);
         }
 
         .button--primary {
@@ -569,19 +566,17 @@
 
     <main id="top">
         <section class="hero container fade-block" aria-labelledby="hero-title">
-            <span class="hero__eyebrow">Trusted growth partners</span>
-            <h1 class="hero__title" id="hero-title">YouTube business solutions built to convert</h1>
-            <p class="hero__description">A senior team of strategists, analysts, and producers who have grown channels across entertainment, real estate, healthcare, and finance. We design every video to win attention and deliver measurable revenue.</p>
+            <h1 class="hero__title" id="hero-title">YouTube business solutions, from industry veterans.</h1>
             <a class="button button--primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a discovery call</a>
         </section>
 
         <section class="section fade-block" id="services" aria-labelledby="services-title">
             <div class="container">
                 <div class="section__header">
-                    <h2 class="section__title" id="services-title">Services tailored for growth</h2>
-                    <p class="section__description">Three engagement models designed to unlock momentum, each pairing rigorous insight with done-with-you support. Explore what fits, or combine them into a compounding growth engine.</p>
+                    <h2 class="section__title" id="services-title">Solutions for your growth.</h2>
                 </div>
                 <div class="services-layout">
+
                     <article class="service fade-block">
                         <div class="service__content">
                             <div class="service__icon" aria-hidden="true">
@@ -594,105 +589,25 @@
                                     <circle cx="22" cy="12" r="2" fill="currentColor"/>
                                 </svg>
                             </div>
-                            <h3 class="service__title">Strategy Intensive</h3>
-                            <p class="service__lead">A focused workshop that maps positioning, packaging, and programming for your next 90 days.</p>
-                            <p class="service__body">Co-create with a senior strategist who pressure tests your audience data, streamlines the editorial slate, and supplies the frameworks your team can execute immediately.</p>
+                            <h3 class="service__title">Strategy Call</h3>
+                            <p class="service__lead">An expert opinion on your current strategy, or answers to your strategic questions.</p>
+                            <p class="service__body">Perfect whether you are at the beginning of your YouTube journey or planning the next steps for an established channel.</p>
                             <div class="service__actions">
-                                <a class="button button--primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Schedule a session</a>
+                                <button class="button button--ghost" type="button">Hide Case Studies &amp; Testimonials</button>
+                                <a class="button button--primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
                             </div>
                         </div>
                         <div class="service__visual">
                             <div class="service__metrics">
                                 <div class="metric">
-                                    <span class="metric__value">5x</span>
-                                    <span class="metric__label">Demo requests</span>
-                                    <span class="metric__context">B2B SaaS sprint realigned around demand-led stories.</span>
-                                </div>
-                                <div class="metric">
-                                    <span class="metric__value">43%</span>
-                                    <span class="metric__label">Higher CTR</span>
-                                    <span class="metric__context">Lifestyle creator relaunch with refreshed hooks and packaging.</span>
+                                    <span class="metric__label">Strategy Success</span>
+                                    <span class="metric__value">Channel Optimization Case Study</span>
+                                    <span class="metric__context">Helped increase CTR by 40% through strategic consulting</span>
                                 </div>
                             </div>
-                            <div class="visual-card">
-                                <div class="visual-card__item">
-                                    <div class="visual-card__icon" aria-hidden="true">
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M3 8.5L6.5 12L13 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </div>
-                                    <p class="visual-card__text">Editorial calendar and playbook delivered within 7 days.</p>
-                                </div>
-                                <div class="visual-card__item">
-                                    <div class="visual-card__icon" aria-hidden="true">
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M2.5 11.5H13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                            <path d="M4 11.5V3.5L10.5 5.5V11.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </div>
-                                    <p class="visual-card__text">Live working session with guided prioritization and templates.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="service service--feature fade-block">
-                        <span class="service__badge">Most popular</span>
-                        <div class="service__content">
-                            <div class="service__icon" aria-hidden="true">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 6H22V10L14 14L6 10V6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                                    <path d="M6 10L14 14L22 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M6 14L14 18L22 14V18L14 22L6 18V14Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                                </svg>
-                            </div>
-                            <h3 class="service__title">Done-for-you Production</h3>
-                            <p class="service__lead">A dedicated crew producing weekly, conversion-focused videos—strategy through upload.</p>
-                            <p class="service__body">We embed researchers, writers, designers, and editors who have shipped for top creators. Expect consistent releases, rapid experimentation, and KPI dashboards that make the ROI clear.</p>
-                            <div class="service__actions">
-                                <a class="button button--primary" href="mailto:hello@simplervideos.com">Request a proposal</a>
-                            </div>
-                        </div>
-                        <div class="service__visual">
-                            <div class="service__metrics">
-                                <div class="metric">
-                                    <span class="metric__value">65%</span>
-                                    <span class="metric__label">Monthly views</span>
-                                    <span class="metric__context">Tech channel now driven by two new evergreen clusters.</span>
-                                </div>
-                                <div class="metric">
-                                    <span class="metric__value">50+</span>
-                                    <span class="metric__label">Qualified leads</span>
-                                    <span class="metric__context">New real estate channel converting within the first quarter.</span>
-                                </div>
-                            </div>
-                            <div class="visual-card visual-card--light">
-                                <div class="visual-card__item">
-                                    <div class="visual-card__icon" aria-hidden="true">
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M3 3.5H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                            <path d="M5.5 3.5V12.5L8 10.5L10.5 12.5V3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </div>
-                                    <p class="visual-card__text">On-call creative leadership and editorial approvals.</p>
-                                </div>
-                                <div class="visual-card__item">
-                                    <div class="visual-card__icon" aria-hidden="true">
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M2.5 4.5L8 2L13.5 4.5V11.5L8 14L2.5 11.5V4.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                                            <path d="M5.5 7.5L8 9L10.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </div>
-                                    <p class="visual-card__text">Weekly performance reviews with rapid packaging tests.</p>
-                                </div>
-                                <div class="visual-card__item">
-                                    <div class="visual-card__icon" aria-hidden="true">
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M4 8L6.5 10.5L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </div>
-                                    <p class="visual-card__text">Cross-functional workflow spanning research to distribution.</p>
-                                </div>
+                            <div class="testimonial-block">
+                                <p class="testimonial-block__quote">“The strategy call completely transformed how I approach content creation. Subscriber growth increased by 200% in just 3 months.”</p>
+                                <p class="testimonial-block__author">— Sarah M., Lifestyle Creator</p>
                             </div>
                         </div>
                     </article>
@@ -706,29 +621,70 @@
                                     <path d="M9 17H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                                 </svg>
                             </div>
-                            <h3 class="service__title">Data-led Channel Audit</h3>
-                            <p class="service__lead">A forensic view of your niche, catalog, and competitors distilled into a step-by-step roadmap.</p>
-                            <p class="service__body">We combine keyword demand, retention curves, thumbnail diagnostics, and creative pattern analysis. Receive a segmented dashboard, prioritized experiments, and a packaging system your team can scale.</p>
+                            <h3 class="service__title">Data-backed Niche and Channel Audit</h3>
+                            <p class="service__lead">Data-backed Niche Study + Complete Channel Audit + Action Plan to grow your channel.</p>
+                            <p class="service__body">Get comprehensive insights into your niche opportunities and receive a detailed roadmap for channel optimization based on real data and proven strategies.</p>
                             <div class="service__actions">
-                                <a class="button button--primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a walkthrough</a>
+                                <button class="button button--ghost" type="button">Hide Case Studies &amp; Testimonials</button>
+                                <a class="button button--primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
                             </div>
                         </div>
                         <div class="service__visual">
                             <div class="service__metrics">
                                 <div class="metric">
-                                    <span class="metric__value">31%</span>
-                                    <span class="metric__label">Longer watch time</span>
-                                    <span class="metric__context">Finance publisher reset with refined scripting and pacing.</span>
-                                </div>
-                                <div class="metric">
-                                    <span class="metric__value">18%</span>
-                                    <span class="metric__label">CPM lift</span>
-                                    <span class="metric__context">Premium positioning built from revenue-focused insights.</span>
+                                    <span class="metric__label">Audit Results</span>
+                                    <span class="metric__value">Tech Channel Transformation</span>
+                                    <span class="metric__context">Identified untapped niche opportunities leading to 5x growth</span>
                                 </div>
                             </div>
                             <div class="testimonial-block">
-                                <p class="testimonial-block__quote">The audit exposed exactly where we were leaving growth on the table and how to capture it.</p>
-                                <p class="testimonial-block__author">Head of Growth · Series B fintech</p>
+                                <p class="testimonial-block__quote">“The audit revealed opportunities I never saw. The action plan was incredibly detailed and easy to follow. My channel finally found its direction.”</p>
+                                <p class="testimonial-block__author">— Mike T., Tech Reviewer</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="service fade-block">
+                        <div class="service__content">
+                            <div class="service__icon" aria-hidden="true">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 7L14 3L24 7V21L14 25L4 21V7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                    <path d="M9.5 11.5L14 14L18.5 11.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9.5 16L14 18.5L18.5 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="service__title">Done-for-you Solutions: Business</h3>
+                            <p class="service__lead">We do everything, from scripting to publishing, so you can focus on shooting content. No fluff, just leads.</p>
+                            <p class="service__body">This solution gives you back your time while we use our expertise—honed across 80+ businesses in Real Estate, Healthcare, and Finance—to attract leads and grow your business.</p>
+                            <div class="service__actions">
+                                <button class="button button--ghost" type="button">Hide Case Studies &amp; Testimonials</button>
+                                <a class="button button--primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
+                            </div>
+                        </div>
+                        <div class="service__visual">
+                            <div class="service__metrics">
+                                <div class="metric">
+                                    <span class="metric__label">Steve Welty Case Study Screenshot</span>
+                                    <span class="metric__value">Steve Welty - Real Estate</span>
+                                    <span class="metric__context">Generated 50+ qualified leads in first quarter</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric__label">Success Story</span>
+                                    <span class="metric__value">Healthcare Practice Growth</span>
+                                    <span class="metric__context">300% increase in consultation bookings</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-block">
+                                <p class="testimonial-block__quote">“They took care of everything while I focused on my business. The leads started coming in within weeks, and the quality was exceptional.”</p>
+                                <p class="testimonial-block__author">— Dr. Jennifer K., Healthcare</p>
+                            </div>
+                            <div class="testimonial-block">
+                                <p class="testimonial-block__quote">“Best investment I've made for my business. Their team understands what works and delivers results consistently.”</p>
+                                <p class="testimonial-block__author">— Robert L., Financial Advisor</p>
+                            </div>
+                            <div class="visual-card visual-card--light">
+                                <p class="visual-card__text">Content Strategy for Entertainment Channels</p>
+                                <p class="visual-card__text">Get access to the experts behind Mr Beast, FaZe Rug and many other platform-defining channels. Get in touch for more.</p>
                             </div>
                         </div>
                     </article>
@@ -739,15 +695,15 @@
         <section class="section about fade-block" id="about" aria-labelledby="about-title">
             <div class="container">
                 <div class="section__header">
-                    <h2 class="section__title" id="about-title">About our collective</h2>
-                    <p class="section__description">A network of senior operators who have scaled flagship channels and franchises that defined categories.</p>
+                    <h2 class="section__title" id="about-title">About</h2>
                 </div>
                 <div class="about__content">
-                    <div class="about__image" aria-hidden="true">Team</div>
+                    <div class="about__image" aria-hidden="true">Profile Photo</div>
                     <div class="about__text">
-                        <p>For over a decade we have designed YouTube ecosystems for global brands and breakout creators. Simpler Videos exists to bring that experience to teams ready for their next stage of growth.</p>
-                        <p>Our strategists have led launches for <strong>Warner Bros</strong>, <strong>Adult Swim</strong>, and <strong>Cartoon Network</strong>, driving over one billion monthly views. The same minds shaped the success of franchises like <strong>Adventure Time</strong>, <strong>Rick and Morty</strong>, and <strong>Teletubbies</strong>.</p>
-                        <p>When you partner with us, you gain a tailored roster of researchers, writers, designers, and editors matched to your industry. We operate as an embedded growth team focused on measurable outcomes.</p>
+
+                        <p>For over a decade, I've been the strategic mind behind the YouTube success of some of the world's most iconic brands. My passion is helping creators and companies achieve their most ambitious goals on the platform.</p>
+                        <p>My journey has given me the privilege of shaping the YouTube strategy for giants like Warner Bros., Adult Swim, and Cartoon Network, contributing to a platform that generated over one billion monthly views. I've worked directly on generation-defining shows, from the magic of Adventure Time and Teletubbies to the cultural phenomenon of Rick &amp; Morty.</p>
+                        <p>I started Simpler Videos to bring that top-tier industry experience directly to you. Our solutions are fulfilled by a network of elite talent, ensuring that every aspect of your channel—from strategy to design—is handled with the expertise it deserves.</p>
                     </div>
                 </div>
             </div>
