@@ -172,192 +172,144 @@
             font-size: 16px;
         }
 
-        .services-layout {
-            display: grid;
-            gap: 48px;
-        }
-
-        .service {
-            display: grid;
-            gap: 28px;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            align-items: center;
-            padding: 36px;
-            border-radius: 28px;
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
+        .services-stack {
             position: relative;
         }
 
-        .service__badge {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            font-size: 12px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            font-weight: 600;
-            color: var(--color-accent);
-        }
-
-        .service__content {
+        .stacking__card {
+            background: var(--color-surface);
+            border-radius: 32px;
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
             display: grid;
-            gap: 18px;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 40px;
+            margin: 24vh auto;
+            max-width: 1040px;
+            padding: 48px;
+            position: relative;
+            align-items: start;
         }
 
-        .service__icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 16px;
+        .service-card__main {
+            display: grid;
+            gap: 24px;
+            align-content: start;
+        }
+
+        .service-card__meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .service-card__icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
             background: rgba(15, 111, 236, 0.1);
             display: grid;
             place-items: center;
-        }
-
-        .service__title {
-            margin: 0;
             font-size: 28px;
-            font-weight: 650;
-            letter-spacing: -0.02em;
         }
 
-        .service__lead {
-            margin: 0;
-            font-size: 17px;
-            color: var(--color-text);
+        .service-card__label {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
-        .service__body {
-            margin: 0;
-            font-size: 15px;
+        .service-card__eyebrow {
+            font-size: 14px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 600;
             color: var(--color-muted);
         }
 
-        .service__metrics {
+        .service-card__caption {
+            font-size: 16px;
+            color: var(--color-text);
+            font-weight: 600;
+        }
+
+        .service-card__title {
+            margin: 0;
+            font-size: clamp(2.4rem, 3.6vw, 3.2rem);
+            letter-spacing: -0.03em;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .service-card__lead {
+            margin: 0;
+            font-size: 18px;
+            color: var(--color-text);
+            max-width: 36ch;
+        }
+
+        .service-card__body {
+            margin: 0;
+            font-size: 15px;
+            color: var(--color-muted);
+            max-width: 48ch;
+        }
+
+        .service-card__actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .service-card__aside {
             display: grid;
-            gap: 18px;
+            gap: 24px;
+            align-content: start;
         }
 
         .metric {
             display: flex;
             flex-direction: column;
-            gap: 2px;
-        }
-
-        .metric__value {
-            font-size: 36px;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--color-accent);
+            gap: 6px;
         }
 
         .metric__label {
             font-size: 13px;
             font-weight: 600;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            letter-spacing: 0.12em;
             color: var(--color-muted);
         }
 
+        .metric__value {
+            font-size: clamp(2.2rem, 2.6vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--color-accent);
+        }
+
         .metric__context {
-            font-size: 14px;
+            font-size: 15px;
             color: var(--color-text);
         }
 
-        .service__actions {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .service--feature {
-            background: #0f6fec;
-            color: #ffffff;
-            border: none;
-            box-shadow: 0 22px 50px rgba(15, 111, 236, 0.22);
-        }
-
-        .service--feature .service__icon {
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .service--feature .service__lead,
-        .service--feature .service__body,
-        .service--feature .metric__context,
-        .service--feature .metric__label {
-            color: rgba(255, 255, 255, 0.84);
-        }
-
-        .service--feature .metric__value {
-            color: #ffffff;
-        }
-
-        .service--feature .button--primary {
-            background: #ffffff;
-            color: #0f6fec;
-            box-shadow: none;
-        }
-
-        .service--feature .button--primary:hover,
-        .service--feature .button--primary:focus-visible {
-            background: rgba(255, 255, 255, 0.88);
-            color: #0f5ee0;
-        }
-
-        .service:nth-child(even) .service__content {
-            order: 2;
-        }
-
-        .service:nth-child(even) .service__visual {
-            order: 1;
-        }
-
-        .service__visual {
+        .metric-grid {
             display: grid;
             gap: 20px;
         }
 
-        .visual-card {
-            background: rgba(17, 18, 22, 0.04);
+        .service-card__note {
+            background: rgba(17, 18, 22, 0.05);
             border-radius: 20px;
-            padding: 20px;
+            padding: 20px 22px;
             display: grid;
-            gap: 14px;
-        }
-
-        .visual-card--light {
-            background: rgba(255, 255, 255, 0.14);
-        }
-
-        .visual-card__item {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .visual-card__icon {
-            width: 24px;
-            height: 24px;
-            border-radius: 8px;
-            background: rgba(15, 111, 236, 0.15);
-            display: grid;
-            place-items: center;
-        }
-
-        .service--feature .visual-card__icon {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .visual-card__text {
-            font-size: 14px;
-            margin: 0;
-            color: inherit;
+            gap: 8px;
+            font-size: 15px;
+            color: var(--color-text);
         }
 
         .testimonial-block {
-            background: rgba(17, 18, 22, 0.08);
-            border-radius: 24px;
+            background: rgba(17, 18, 22, 0.06);
+            border-radius: 26px;
             padding: 28px;
             display: grid;
             gap: 16px;
@@ -369,7 +321,7 @@
             line-height: 1.5;
             margin: 0;
             position: relative;
-            padding-left: 32px;
+            padding-left: 36px;
         }
 
         .testimonial-block__quote::before {
@@ -377,17 +329,71 @@
             position: absolute;
             left: 0;
             top: -8px;
-            font-size: 48px;
-            color: rgba(17, 18, 22, 0.14);
+            font-size: 56px;
+            color: rgba(17, 18, 22, 0.16);
         }
 
         .testimonial-block__author {
+            margin: 0;
             font-size: 14px;
             font-weight: 600;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: rgba(17, 18, 22, 0.72);
-            margin: 0;
+            color: rgba(17, 18, 22, 0.7);
+        }
+
+        .service-card--feature {
+            background: #0f6fec;
+            border: none;
+            box-shadow: 0 26px 52px rgba(15, 111, 236, 0.25);
+            color: #ffffff;
+        }
+
+        .service-card--feature .service-card__icon {
+            background: rgba(255, 255, 255, 0.16);
+            color: #ffffff;
+        }
+
+        .service-card--feature .service-card__eyebrow,
+        .service-card--feature .service-card__body,
+        .service-card--feature .metric__label,
+        .service-card--feature .metric__context,
+        .service-card--feature .testimonial-block__author {
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        .service-card--feature .service-card__lead,
+        .service-card--feature .testimonial-block__quote {
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .service-card--feature .metric__value {
+            color: #ffffff;
+        }
+
+        .service-card--feature .testimonial-block {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .service-card--feature .service-card__note {
+            background: rgba(255, 255, 255, 0.14);
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .service-card--feature .button--primary {
+            background: #ffffff;
+            color: #0f6fec;
+            box-shadow: none;
+        }
+
+        .service-card--feature .button--primary:hover,
+        .service-card--feature .button--primary:focus-visible {
+            background: rgba(255, 255, 255, 0.9);
+            color: #0f5ee0;
+        }
+
+        .service-card--feature .service-card__eyebrow {
+            color: rgba(255, 255, 255, 0.7);
         }
 
         .about {
@@ -506,6 +512,12 @@
             transform: translateY(0);
         }
 
+        @media (max-width: 1024px) {
+            .stacking__card {
+                margin: 18vh auto;
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
                 display: none;
@@ -523,31 +535,33 @@
                 padding: 80px 0;
             }
 
-            .service {
+            .stacking__card {
                 grid-template-columns: 1fr;
-                padding: 28px;
+                gap: 32px;
+                padding: 36px;
+                margin: 14vh auto;
             }
 
-            .service:nth-child(even) .service__content,
-            .service:nth-child(even) .service__visual {
-                order: initial;
+            .service-card__meta {
+                flex-wrap: wrap;
             }
 
-            .service__icon {
-                width: 48px;
-                height: 48px;
-            }
-
-            .service__title {
+            .service-card__icon {
+                width: 52px;
+                height: 52px;
                 font-size: 24px;
             }
 
-            .service__lead {
-                font-size: 16px;
+            .service-card__title {
+                font-size: clamp(2.1rem, 7vw, 2.6rem);
             }
 
-            .service__metrics {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            .service-card__lead {
+                font-size: 17px;
+            }
+
+            .service-card__actions {
+                flex-wrap: wrap;
             }
         }
     </style>
@@ -575,34 +589,35 @@
                 <div class="section__header">
                     <h2 class="section__title" id="services-title">Solutions for your growth.</h2>
                 </div>
-                <div class="services-layout">
+                <div class="services-stack stacking" data-stack>
 
-                    <article class="service fade-block">
-                        <div class="service__content">
-                            <div class="service__icon" aria-hidden="true">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 20L12 14L16 18L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M18 12H22V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <circle cx="6" cy="20" r="2" fill="currentColor"/>
-                                    <circle cx="12" cy="14" r="2" fill="currentColor"/>
-                                    <circle cx="16" cy="18" r="2" fill="currentColor"/>
-                                    <circle cx="22" cy="12" r="2" fill="currentColor"/>
-                                </svg>
+                    <article class="stacking__card service-card">
+                        <div class="service-card__main">
+                            <div class="service-card__meta">
+                                <div class="service-card__icon" aria-hidden="true">🧭</div>
+                                <div class="service-card__label">
+                                    <span class="service-card__eyebrow">Strategy Success</span>
+                                    <span class="service-card__caption">Guidance for decisive creators</span>
+                                </div>
                             </div>
-                            <h3 class="service__title">Strategy Call</h3>
-                            <p class="service__lead">An expert opinion on your current strategy, or answers to your strategic questions.</p>
-                            <p class="service__body">Perfect whether you are at the beginning of your YouTube journey or planning the next steps for an established channel.</p>
-                            <div class="service__actions">
-                                <button class="button button--ghost" type="button">Hide Case Studies &amp; Testimonials</button>
+                            <h3 class="service-card__title">Strategy Call</h3>
+                            <p class="service-card__lead">An expert opinion on your current strategy, or answers to your strategic questions.</p>
+                            <p class="service-card__body">Perfect whether you are at the beginning of your YouTube journey or planning the next steps for an established channel.</p>
+                            <div class="service-card__actions">
                                 <a class="button button--primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
                             </div>
                         </div>
-                        <div class="service__visual">
-                            <div class="service__metrics">
+                        <div class="service-card__aside">
+                            <div class="metric-grid">
                                 <div class="metric">
-                                    <span class="metric__label">Strategy Success</span>
-                                    <span class="metric__value">Channel Optimization Case Study</span>
-                                    <span class="metric__context">Helped increase CTR by 40% through strategic consulting</span>
+                                    <span class="metric__label">Channel Optimization Case Study</span>
+                                    <span class="metric__value">40%</span>
+                                    <span class="metric__context">Increase in CTR through strategic consulting</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric__label">Subscriber Momentum</span>
+                                    <span class="metric__value">200%</span>
+                                    <span class="metric__context">Growth in three months after a single strategy intensive</span>
                                 </div>
                             </div>
                             <div class="testimonial-block">
@@ -612,29 +627,28 @@
                         </div>
                     </article>
 
-                    <article class="service fade-block">
-                        <div class="service__content">
-                            <div class="service__icon" aria-hidden="true">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 21V7L12 3L18 7V21L12 25L6 21Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                                    <path d="M12 3V13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                    <path d="M9 17H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                </svg>
+                    <article class="stacking__card service-card">
+                        <div class="service-card__main">
+                            <div class="service-card__meta">
+                                <div class="service-card__icon" aria-hidden="true">📊</div>
+                                <div class="service-card__label">
+                                    <span class="service-card__eyebrow">Audit Results</span>
+                                    <span class="service-card__caption">Clarity from real data</span>
+                                </div>
                             </div>
-                            <h3 class="service__title">Data-backed Niche and Channel Audit</h3>
-                            <p class="service__lead">Data-backed Niche Study + Complete Channel Audit + Action Plan to grow your channel.</p>
-                            <p class="service__body">Get comprehensive insights into your niche opportunities and receive a detailed roadmap for channel optimization based on real data and proven strategies.</p>
-                            <div class="service__actions">
-                                <button class="button button--ghost" type="button">Hide Case Studies &amp; Testimonials</button>
+                            <h3 class="service-card__title">Data-backed Niche and Channel Audit</h3>
+                            <p class="service-card__lead">Data-backed Niche Study + Complete Channel Audit + Action Plan to grow your channel.</p>
+                            <p class="service-card__body">Get comprehensive insights into your niche opportunities and receive a detailed roadmap for channel optimization based on real data and proven strategies.</p>
+                            <div class="service-card__actions">
                                 <a class="button button--primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
                             </div>
                         </div>
-                        <div class="service__visual">
-                            <div class="service__metrics">
+                        <div class="service-card__aside">
+                            <div class="metric-grid">
                                 <div class="metric">
-                                    <span class="metric__label">Audit Results</span>
-                                    <span class="metric__value">Tech Channel Transformation</span>
-                                    <span class="metric__context">Identified untapped niche opportunities leading to 5x growth</span>
+                                    <span class="metric__label">Tech Channel Transformation</span>
+                                    <span class="metric__value">5x</span>
+                                    <span class="metric__context">Growth unlocked by identifying untapped niche opportunities</span>
                                 </div>
                             </div>
                             <div class="testimonial-block">
@@ -644,34 +658,33 @@
                         </div>
                     </article>
 
-                    <article class="service fade-block">
-                        <div class="service__content">
-                            <div class="service__icon" aria-hidden="true">
-                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4 7L14 3L24 7V21L14 25L4 21V7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                                    <path d="M9.5 11.5L14 14L18.5 11.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M9.5 16L14 18.5L18.5 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+                    <article class="stacking__card service-card service-card--feature">
+                        <div class="service-card__main">
+                            <div class="service-card__meta">
+                                <div class="service-card__icon" aria-hidden="true">🎬</div>
+                                <div class="service-card__label">
+                                    <span class="service-card__eyebrow">Done-for-you Production</span>
+                                    <span class="service-card__caption">Our most comprehensive solution</span>
+                                </div>
                             </div>
-                            <h3 class="service__title">Done-for-you Solutions: Business</h3>
-                            <p class="service__lead">We do everything, from scripting to publishing, so you can focus on shooting content. No fluff, just leads.</p>
-                            <p class="service__body">This solution gives you back your time while we use our expertise—honed across 80+ businesses in Real Estate, Healthcare, and Finance—to attract leads and grow your business.</p>
-                            <div class="service__actions">
-                                <button class="button button--ghost" type="button">Hide Case Studies &amp; Testimonials</button>
+                            <h3 class="service-card__title">Done-for-you Solutions: Business</h3>
+                            <p class="service-card__lead">We do everything, from scripting to publishing, so you can focus on shooting content. No fluff, just leads.</p>
+                            <p class="service-card__body">This solution gives you back your time while we use our expertise—honed across 80+ businesses in Real Estate, Healthcare, and Finance—to attract leads and grow your business.</p>
+                            <div class="service-card__actions">
                                 <a class="button button--primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
                             </div>
                         </div>
-                        <div class="service__visual">
-                            <div class="service__metrics">
+                        <div class="service-card__aside">
+                            <div class="metric-grid">
                                 <div class="metric">
-                                    <span class="metric__label">Steve Welty Case Study Screenshot</span>
-                                    <span class="metric__value">Steve Welty - Real Estate</span>
-                                    <span class="metric__context">Generated 50+ qualified leads in first quarter</span>
+                                    <span class="metric__label">Steve Welty Case Study</span>
+                                    <span class="metric__value">50+</span>
+                                    <span class="metric__context">Qualified leads generated in the first quarter</span>
                                 </div>
                                 <div class="metric">
-                                    <span class="metric__label">Success Story</span>
-                                    <span class="metric__value">Healthcare Practice Growth</span>
-                                    <span class="metric__context">300% increase in consultation bookings</span>
+                                    <span class="metric__label">Healthcare Practice Growth</span>
+                                    <span class="metric__value">300%</span>
+                                    <span class="metric__context">Increase in consultation bookings for a healthcare client</span>
                                 </div>
                             </div>
                             <div class="testimonial-block">
@@ -682,12 +695,13 @@
                                 <p class="testimonial-block__quote">“Best investment I've made for my business. Their team understands what works and delivers results consistently.”</p>
                                 <p class="testimonial-block__author">— Robert L., Financial Advisor</p>
                             </div>
-                            <div class="visual-card visual-card--light">
-                                <p class="visual-card__text">Content Strategy for Entertainment Channels</p>
-                                <p class="visual-card__text">Get access to the experts behind Mr Beast, FaZe Rug and many other platform-defining channels. Get in touch for more.</p>
+                            <div class="service-card__note">
+                                <strong>Content Strategy for Entertainment Channels</strong>
+                                <span>Get access to the experts behind Mr Beast, FaZe Rug and many other platform-defining channels. Get in touch for more.</span>
                             </div>
                         </div>
                     </article>
+
                 </div>
             </div>
         </section>
@@ -752,7 +766,49 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-wpRcmkQC7KViozbh7zNrWBRxDg8ZkQ/LJ6pVL0/0WIBqoxPSSW5SkdYsUH4FhuXQ7yWwkaXaYtPyuHcAcoRFhQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-KuQJn0TOcoL64meOo/1zraYhxxTIvUUCFd69Z1J7acMEwv6d6PG6czOnSBb9R5UGwEVhWfPsSt7STcgQnUM5pA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollSmoother.min.js" integrity="sha512-Ma6nK8w7nImZU3h+OI6XwOjDPmgyrvl3iDyK7rkK41q1NhngCo/zhJH0I9m9H5Ff38fjAHHfLtWy8NXU62ILdQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+        if (window.gsap && window.ScrollTrigger) {
+            gsap.registerPlugin(ScrollTrigger);
+            if (window.ScrollSmoother) {
+                gsap.registerPlugin(ScrollSmoother);
+                ScrollSmoother.create({
+                    smooth: 1,
+                    effects: true,
+                    normalizeScroll: true
+                });
+            }
+
+            const cards = gsap.utils.toArray('.stacking__card');
+            const spacer = 50;
+
+            cards.forEach((card, index) => {
+                ScrollTrigger.create({
+                    trigger: card,
+                    start: `center-=${index * spacer} center`,
+                    endTrigger: '.stacking',
+                    end: 'bottom center',
+                    pin: true,
+                    pinSpacing: false,
+                    invalidateOnRefresh: true
+                });
+
+                const scaleValue = 0.85 + index * 0.05;
+                gsap.to(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top center',
+                        end: 'bottom center',
+                        scrub: true,
+                        invalidateOnRefresh: true
+                    },
+                    scale: scaleValue
+                });
+            });
+        }
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
