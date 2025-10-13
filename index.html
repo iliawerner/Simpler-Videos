@@ -6,23 +6,18 @@
     <title>Simpler Videos – YouTube Solutions for Creators</title>
     <style>
         :root {
-            --color-bg: #fdfdfd;
-            --color-text: #1f1f22;
-            --color-muted: #5a5a5f;
+            --color-bg: #f5f6f7;
+            --color-surface: #ffffff;
+            --color-text: #111216;
+            --color-muted: #6d6f75;
             --color-accent: #0f6fec;
-            --color-accent-dark: #0c54b0;
-            --color-border: #dedee3;
-            --color-card: #ffffff;
-            --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-            --shadow-card: 0 18px 45px rgba(15, 30, 60, 0.08);
+            --color-accent-strong: #0d5dde;
+            --color-border: rgba(17, 18, 22, 0.08);
+            --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
         * {
             box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
         }
 
         body {
@@ -33,6 +28,11 @@
             line-height: 1.6;
             display: flex;
             flex-direction: column;
+            font-size: 16px;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         a {
@@ -48,13 +48,13 @@
             position: sticky;
             top: 0;
             z-index: 10;
-            background: rgba(253, 253, 253, 0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(222, 222, 227, 0.7);
+            background: rgba(245, 246, 247, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
         }
 
         .container {
-            width: min(1120px, 92vw);
+            width: min(1100px, 92vw);
             margin: 0 auto;
         }
 
@@ -66,16 +66,16 @@
         }
 
         .brand {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.02em;
             text-decoration: none;
             color: var(--color-text);
         }
 
         nav {
             display: flex;
-            gap: 28px;
+            gap: 24px;
         }
 
         nav a {
@@ -83,7 +83,7 @@
             font-size: 15px;
             font-weight: 500;
             color: var(--color-muted);
-            transition: color 0.2s ease;
+            transition: color 0.3s ease;
         }
 
         nav a:hover,
@@ -96,7 +96,7 @@
         }
 
         .hero {
-            padding: 120px 0 100px;
+            padding: 112px 0 96px;
             display: grid;
             gap: 32px;
             justify-items: start;
@@ -111,7 +111,7 @@
         }
 
         .hero__title {
-            font-size: clamp(3.25rem, 6vw, 4.5rem);
+            font-size: clamp(2.8rem, 6vw, 4rem);
             font-weight: 700;
             letter-spacing: -0.04em;
             line-height: 1.08;
@@ -119,7 +119,7 @@
         }
 
         .hero__description {
-            font-size: 18px;
+            font-size: 17px;
             max-width: 640px;
             color: var(--color-muted);
             margin: 0;
@@ -129,32 +129,32 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 28px;
+            padding: 12px 26px;
             border-radius: 999px;
             border: none;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             letter-spacing: -0.01em;
             cursor: pointer;
             text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
         }
 
         .button--primary {
             background: var(--color-accent);
             color: #ffffff;
-            box-shadow: 0 12px 24px rgba(15, 111, 236, 0.22);
+            box-shadow: 0 14px 28px rgba(15, 111, 236, 0.18);
         }
 
         .button--primary:hover,
         .button--primary:focus-visible {
-            background: var(--color-accent-dark);
+            background: var(--color-accent-strong);
             transform: translateY(-1px);
             box-shadow: 0 16px 28px rgba(12, 84, 176, 0.28);
         }
 
         .section {
-            padding: 96px 0;
+            padding: 88px 0;
         }
 
         .section__header {
@@ -163,103 +163,238 @@
         }
 
         .section__title {
-            font-size: clamp(2.25rem, 5vw, 3rem);
-            letter-spacing: -0.02em;
+            font-size: clamp(2.2rem, 4.4vw, 3rem);
+            letter-spacing: -0.03em;
             font-weight: 650;
-            margin: 0 0 12px;
+            margin: 0 0 10px;
         }
 
         .section__description {
             margin: 0;
             color: var(--color-muted);
-            font-size: 18px;
-        }
-
-        .services-grid {
-            display: grid;
-            gap: 32px;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        }
-
-        .service-card {
-            background: var(--color-card);
-            border-radius: 24px;
-            padding: 32px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            border: 1px solid rgba(15, 30, 60, 0.05);
-            box-shadow: var(--shadow-card);
-        }
-
-        .service-card__heading {
-            margin: 0;
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-        }
-
-        .service-card__lead {
-            margin: 0;
-            color: var(--color-text);
-            font-size: 18px;
-        }
-
-        .service-card__body {
-            margin: 0;
-            color: var(--color-muted);
             font-size: 16px;
         }
 
-        .service-card__meta {
-            display: flex;
-            flex-direction: column;
+        .services-layout {
+            display: grid;
+            gap: 48px;
+        }
+
+        .service {
+            display: grid;
+            gap: 28px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-items: center;
+            padding: 36px;
+            border-radius: 28px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            position: relative;
+        }
+
+        .service__badge {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+
+        .service__content {
+            display: grid;
             gap: 18px;
         }
 
-        .service-card__cta {
-            align-self: flex-start;
+        .service__icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: rgba(15, 111, 236, 0.1);
+            display: grid;
+            place-items: center;
         }
 
-        .case-list {
+        .service__title {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+        }
+
+        .service__lead {
+            margin: 0;
+            font-size: 17px;
+            color: var(--color-text);
+        }
+
+        .service__body {
+            margin: 0;
+            font-size: 15px;
+            color: var(--color-muted);
+        }
+
+        .service__metrics {
+            display: grid;
+            gap: 18px;
+        }
+
+        .metric {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .metric__value {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--color-accent);
+        }
+
+        .metric__label {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--color-muted);
+        }
+
+        .metric__context {
+            font-size: 14px;
+            color: var(--color-text);
+        }
+
+        .service__actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .service--feature {
+            background: #0f6fec;
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 22px 50px rgba(15, 111, 236, 0.22);
+        }
+
+        .service--feature .service__icon {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .service--feature .service__lead,
+        .service--feature .service__body,
+        .service--feature .metric__context,
+        .service--feature .metric__label {
+            color: rgba(255, 255, 255, 0.84);
+        }
+
+        .service--feature .metric__value {
+            color: #ffffff;
+        }
+
+        .service--feature .button--primary {
+            background: #ffffff;
+            color: #0f6fec;
+            box-shadow: none;
+        }
+
+        .service--feature .button--primary:hover,
+        .service--feature .button--primary:focus-visible {
+            background: rgba(255, 255, 255, 0.88);
+            color: #0f5ee0;
+        }
+
+        .service:nth-child(even) .service__content {
+            order: 2;
+        }
+
+        .service:nth-child(even) .service__visual {
+            order: 1;
+        }
+
+        .service__visual {
+            display: grid;
+            gap: 20px;
+        }
+
+        .visual-card {
+            background: rgba(17, 18, 22, 0.04);
+            border-radius: 20px;
+            padding: 20px;
+            display: grid;
+            gap: 14px;
+        }
+
+        .visual-card--light {
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .visual-card__item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .visual-card__icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 8px;
+            background: rgba(15, 111, 236, 0.15);
+            display: grid;
+            place-items: center;
+        }
+
+        .service--feature .visual-card__icon {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .visual-card__text {
+            font-size: 14px;
+            margin: 0;
+            color: inherit;
+        }
+
+        .testimonial-block {
+            background: rgba(17, 18, 22, 0.08);
+            border-radius: 24px;
+            padding: 28px;
             display: grid;
             gap: 16px;
         }
 
-        .case-item {
-            border-left: 3px solid var(--color-accent);
-            padding-left: 16px;
-        }
-
-        .case-item__title {
-            font-size: 16px;
+        .testimonial-block__quote {
+            font-size: 20px;
             font-weight: 600;
-            margin: 0 0 6px;
-        }
-
-        .case-item__description {
+            line-height: 1.5;
             margin: 0;
-            font-size: 15px;
-            color: var(--color-muted);
+            position: relative;
+            padding-left: 32px;
         }
 
-        .testimonial {
-            font-size: 15px;
-            font-style: italic;
-            color: var(--color-text);
-            margin: 0;
+        .testimonial-block__quote::before {
+            content: "\201C";
+            position: absolute;
+            left: 0;
+            top: -8px;
+            font-size: 48px;
+            color: rgba(17, 18, 22, 0.14);
         }
 
-        .testimonial__author {
-            font-style: normal;
-            font-weight: 600;
-            color: var(--color-muted);
-            margin-top: 8px;
+        .testimonial-block__author {
             font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(17, 18, 22, 0.72);
+            margin: 0;
         }
 
         .about {
-            background: linear-gradient(140deg, #ffffff 0%, #f3f6fb 100%);
+            background: linear-gradient(160deg, rgba(255, 255, 255, 0.86), #e9edf3);
         }
 
         .about__content {
@@ -272,7 +407,7 @@
             width: 160px;
             height: 160px;
             border-radius: 50%;
-            background: rgba(15, 111, 236, 0.12);
+            background: rgba(15, 111, 236, 0.08);
             display: grid;
             place-items: center;
             font-weight: 600;
@@ -287,18 +422,18 @@
 
         .about__text p {
             margin: 0;
-            font-size: 18px;
+            font-size: 17px;
             color: var(--color-text);
             text-align: left;
         }
 
         .about__text strong {
-            color: var(--color-accent-dark);
+            color: var(--color-accent);
             font-weight: 600;
         }
 
         .contact {
-            background: var(--color-card);
+            background: var(--color-surface);
         }
 
         .contact__grid {
@@ -309,10 +444,10 @@
         }
 
         .contact__form-wrapper {
-            background: #f7f8fb;
+            background: rgba(17, 18, 22, 0.04);
             border-radius: 24px;
             padding: 36px;
-            border: 1px solid rgba(15, 30, 60, 0.06);
+            border: 1px solid rgba(17, 18, 22, 0.06);
         }
 
         form {
@@ -336,10 +471,10 @@
             padding: 14px 16px;
             border-radius: 12px;
             border: 1px solid var(--color-border);
-            font: 16px var(--font-sans);
+            font: 15px var(--font-sans);
             color: var(--color-text);
             background: #ffffff;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         input:focus,
@@ -355,12 +490,23 @@
         }
 
         footer {
-            border-top: 1px solid rgba(222, 222, 227, 0.8);
+            border-top: 1px solid rgba(17, 18, 22, 0.08);
             padding: 32px 0;
             text-align: center;
             font-size: 14px;
             color: var(--color-muted);
             background: #ffffff;
+        }
+
+        .fade-block {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-block.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         @media (max-width: 768px) {
@@ -369,7 +515,7 @@
             }
 
             .hero {
-                padding: 96px 0 72px;
+                padding: 92px 0 72px;
             }
 
             .hero__title {
@@ -378,6 +524,33 @@
 
             .section {
                 padding: 80px 0;
+            }
+
+            .service {
+                grid-template-columns: 1fr;
+                padding: 28px;
+            }
+
+            .service:nth-child(even) .service__content,
+            .service:nth-child(even) .service__visual {
+                order: initial;
+            }
+
+            .service__icon {
+                width: 48px;
+                height: 48px;
+            }
+
+            .service__title {
+                font-size: 24px;
+            }
+
+            .service__lead {
+                font-size: 16px;
+            }
+
+            .service__metrics {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             }
         }
     </style>
@@ -395,88 +568,175 @@
     </header>
 
     <main id="top">
-        <section class="hero container" aria-labelledby="hero-title">
+        <section class="hero container fade-block" aria-labelledby="hero-title">
             <span class="hero__eyebrow">Trusted growth partners</span>
             <h1 class="hero__title" id="hero-title">YouTube business solutions built to convert</h1>
             <p class="hero__description">A senior team of strategists, analysts, and producers who have grown channels across entertainment, real estate, healthcare, and finance. We design every video to win attention and deliver measurable revenue.</p>
             <a class="button button--primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a discovery call</a>
         </section>
 
-        <section class="section" id="services" aria-labelledby="services-title">
+        <section class="section fade-block" id="services" aria-labelledby="services-title">
             <div class="container">
                 <div class="section__header">
                     <h2 class="section__title" id="services-title">Services tailored for growth</h2>
-                    <p class="section__description">From rapid strategic audits to fully managed video engines, every engagement is designed to find opportunity, accelerate production, and turn views into pipeline.</p>
+                    <p class="section__description">Three engagement models designed to unlock momentum, each pairing rigorous insight with done-with-you support. Explore what fits, or combine them into a compounding growth engine.</p>
                 </div>
-                <div class="services-grid">
-                    <article class="service-card">
-                        <header>
-                            <h3 class="service-card__heading">Strategy Intensive</h3>
-                        </header>
-                        <p class="service-card__lead">Work directly with a senior strategist to stress test your channel and shape your next moves.</p>
-                        <p class="service-card__body">Ideal for founders and marketing teams seeking outside expertise on positioning, content cadence, and optimization. Leave with a prioritized playbook for the next 90 days.</p>
-                        <div class="service-card__meta">
-                            <div class="case-list" aria-label="Selected outcomes">
-                                <div class="case-item">
-                                    <p class="case-item__title">Lifestyle creator relaunch</p>
-                                    <p class="case-item__description">Rebuilt content pillars and thumbnails, lifting CTR by 43% and subscribers by 3x in one quarter.</p>
+                <div class="services-layout">
+                    <article class="service fade-block">
+                        <div class="service__content">
+                            <div class="service__icon" aria-hidden="true">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 20L12 14L16 18L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M18 12H22V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="6" cy="20" r="2" fill="currentColor"/>
+                                    <circle cx="12" cy="14" r="2" fill="currentColor"/>
+                                    <circle cx="16" cy="18" r="2" fill="currentColor"/>
+                                    <circle cx="22" cy="12" r="2" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h3 class="service__title">Strategy Intensive</h3>
+                            <p class="service__lead">A focused workshop that maps positioning, packaging, and programming for your next 90 days.</p>
+                            <p class="service__body">Co-create with a senior strategist who pressure tests your audience data, streamlines the editorial slate, and supplies the frameworks your team can execute immediately.</p>
+                            <div class="service__actions">
+                                <a class="button button--primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Schedule a session</a>
+                            </div>
+                        </div>
+                        <div class="service__visual">
+                            <div class="service__metrics">
+                                <div class="metric">
+                                    <span class="metric__value">5x</span>
+                                    <span class="metric__label">Demo requests</span>
+                                    <span class="metric__context">B2B SaaS sprint realigned around demand-led stories.</span>
                                 </div>
-                                <div class="case-item">
-                                    <p class="case-item__title">B2B SaaS sprint</p>
-                                    <p class="case-item__description">Introduced demand-focused narratives that unlocked a 5x increase in demo requests.</p>
+                                <div class="metric">
+                                    <span class="metric__value">43%</span>
+                                    <span class="metric__label">Higher CTR</span>
+                                    <span class="metric__context">Lifestyle creator relaunch with refreshed hooks and packaging.</span>
                                 </div>
                             </div>
-                            <a class="button button--primary service-card__cta" href="https://calendly.com/your-link" target="_blank" rel="noopener">Schedule a session</a>
+                            <div class="visual-card">
+                                <div class="visual-card__item">
+                                    <div class="visual-card__icon" aria-hidden="true">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3 8.5L6.5 12L13 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <p class="visual-card__text">Editorial calendar and playbook delivered within 7 days.</p>
+                                </div>
+                                <div class="visual-card__item">
+                                    <div class="visual-card__icon" aria-hidden="true">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.5 11.5H13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                            <path d="M4 11.5V3.5L10.5 5.5V11.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <p class="visual-card__text">Live working session with guided prioritization and templates.</p>
+                                </div>
+                            </div>
                         </div>
                     </article>
 
-                    <article class="service-card">
-                        <header>
-                            <h3 class="service-card__heading">Data-led Channel Audit</h3>
-                        </header>
-                        <p class="service-card__lead">A deep diagnostic of your niche, competitors, and catalog with clear actions to scale.</p>
-                        <p class="service-card__body">We map keyword demand, content velocity, retention curves, and creative patterns. You receive a segmented report, optimization roadmap, and a dashboard ready for your team.</p>
-                        <div class="service-card__meta">
-                            <div class="case-list" aria-label="Selected outcomes">
-                                <div class="case-item">
-                                    <p class="case-item__title">Tech channel expansion</p>
-                                    <p class="case-item__description">Unlocked two underserved topic clusters that now drive 65% of monthly views.</p>
+                    <article class="service service--feature fade-block">
+                        <span class="service__badge">Most popular</span>
+                        <div class="service__content">
+                            <div class="service__icon" aria-hidden="true">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 6H22V10L14 14L6 10V6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                    <path d="M6 10L14 14L22 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M6 14L14 18L22 14V18L14 22L6 18V14Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="service__title">Done-for-you Production</h3>
+                            <p class="service__lead">A dedicated crew producing weekly, conversion-focused videos—strategy through upload.</p>
+                            <p class="service__body">We embed researchers, writers, designers, and editors who have shipped for top creators. Expect consistent releases, rapid experimentation, and KPI dashboards that make the ROI clear.</p>
+                            <div class="service__actions">
+                                <a class="button button--primary" href="mailto:hello@simplervideos.com">Request a proposal</a>
+                            </div>
+                        </div>
+                        <div class="service__visual">
+                            <div class="service__metrics">
+                                <div class="metric">
+                                    <span class="metric__value">65%</span>
+                                    <span class="metric__label">Monthly views</span>
+                                    <span class="metric__context">Tech channel now driven by two new evergreen clusters.</span>
                                 </div>
-                                <div class="case-item">
-                                    <p class="case-item__title">Finance publisher reset</p>
-                                    <p class="case-item__description">Refined scripting and packaging to improve watch time by 31% and CPMs by 18%.</p>
+                                <div class="metric">
+                                    <span class="metric__value">50+</span>
+                                    <span class="metric__label">Qualified leads</span>
+                                    <span class="metric__context">New real estate channel converting within the first quarter.</span>
                                 </div>
                             </div>
-                            <p class="testimonial">“The audit exposed exactly where we were leaving growth on the table and how to capture it.”</p>
-                            <p class="testimonial__author">— Head of Growth, Series B fintech</p>
+                            <div class="visual-card visual-card--light">
+                                <div class="visual-card__item">
+                                    <div class="visual-card__icon" aria-hidden="true">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3 3.5H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                            <path d="M5.5 3.5V12.5L8 10.5L10.5 12.5V3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <p class="visual-card__text">On-call creative leadership and editorial approvals.</p>
+                                </div>
+                                <div class="visual-card__item">
+                                    <div class="visual-card__icon" aria-hidden="true">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2.5 4.5L8 2L13.5 4.5V11.5L8 14L2.5 11.5V4.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                            <path d="M5.5 7.5L8 9L10.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <p class="visual-card__text">Weekly performance reviews with rapid packaging tests.</p>
+                                </div>
+                                <div class="visual-card__item">
+                                    <div class="visual-card__icon" aria-hidden="true">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4 8L6.5 10.5L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <p class="visual-card__text">Cross-functional workflow spanning research to distribution.</p>
+                                </div>
+                            </div>
                         </div>
                     </article>
 
-                    <article class="service-card">
-                        <header>
-                            <h3 class="service-card__heading">Done-for-you Production</h3>
-                        </header>
-                        <p class="service-card__lead">A fully managed team handling research, scripting, design, editing, and publication.</p>
-                        <p class="service-card__body">Pair your on-camera talent with strategists and producers who have shipped videos for MrBeast, FaZe Rug, and top-performing business channels. We deliver weekly episodes engineered to convert.</p>
-                        <div class="service-card__meta">
-                            <div class="case-list" aria-label="Selected outcomes">
-                                <div class="case-item">
-                                    <p class="case-item__title">Real estate lead engine</p>
-                                    <p class="case-item__description">Generated 50+ qualified inquiries within the first quarter from a brand-new channel.</p>
+                    <article class="service fade-block">
+                        <div class="service__content">
+                            <div class="service__icon" aria-hidden="true">
+                                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 21V7L12 3L18 7V21L12 25L6 21Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                    <path d="M12 3V13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M9 17H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="service__title">Data-led Channel Audit</h3>
+                            <p class="service__lead">A forensic view of your niche, catalog, and competitors distilled into a step-by-step roadmap.</p>
+                            <p class="service__body">We combine keyword demand, retention curves, thumbnail diagnostics, and creative pattern analysis. Receive a segmented dashboard, prioritized experiments, and a packaging system your team can scale.</p>
+                            <div class="service__actions">
+                                <a class="button button--primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a walkthrough</a>
+                            </div>
+                        </div>
+                        <div class="service__visual">
+                            <div class="service__metrics">
+                                <div class="metric">
+                                    <span class="metric__value">31%</span>
+                                    <span class="metric__label">Longer watch time</span>
+                                    <span class="metric__context">Finance publisher reset with refined scripting and pacing.</span>
                                 </div>
-                                <div class="case-item">
-                                    <p class="case-item__title">Healthcare authority build</p>
-                                    <p class="case-item__description">Grew consultations by 3x with thought-leadership storytelling and targeted promotion.</p>
+                                <div class="metric">
+                                    <span class="metric__value">18%</span>
+                                    <span class="metric__label">CPM lift</span>
+                                    <span class="metric__context">Premium positioning built from revenue-focused insights.</span>
                                 </div>
                             </div>
-                            <a class="button button--primary service-card__cta" href="mailto:hello@simplervideos.com">Request a proposal</a>
+                            <div class="testimonial-block">
+                                <p class="testimonial-block__quote">The audit exposed exactly where we were leaving growth on the table and how to capture it.</p>
+                                <p class="testimonial-block__author">Head of Growth · Series B fintech</p>
+                            </div>
                         </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section about" id="about" aria-labelledby="about-title">
+        <section class="section about fade-block" id="about" aria-labelledby="about-title">
             <div class="container">
                 <div class="section__header">
                     <h2 class="section__title" id="about-title">About our collective</h2>
@@ -493,7 +753,7 @@
             </div>
         </section>
 
-        <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <section class="section contact fade-block" id="contact" aria-labelledby="contact-title">
             <div class="container">
                 <div class="section__header">
                     <h2 class="section__title" id="contact-title">Let’s build your next chapter</h2>
@@ -530,10 +790,28 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="fade-block">
         <div class="container">
             <p>&copy; 2025 Simpler Videos. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.25
+        });
+
+        document.querySelectorAll('.fade-block').forEach((element, index) => {
+            element.style.transitionDelay = `${index * 80}ms`;
+            observer.observe(element);
+        });
+    </script>
 </body>
 </html>
