@@ -6,23 +6,18 @@
     <title>Simpler Videos – YouTube Solutions for Creators</title>
     <style>
         :root {
-            --color-bg: #fdfdfd;
-            --color-text: #1f1f22;
-            --color-muted: #5a5a5f;
+            --color-bg: #f5f6f7;
+            --color-surface: #ffffff;
+            --color-text: #111216;
+            --color-muted: #6d6f75;
             --color-accent: #0f6fec;
-            --color-accent-dark: #0c54b0;
-            --color-border: #dedee3;
-            --color-card: #ffffff;
-            --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-            --shadow-card: 0 18px 45px rgba(15, 30, 60, 0.08);
+            --color-accent-strong: #0d5dde;
+            --color-border: rgba(17, 18, 22, 0.08);
+            --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
         * {
             box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
         }
 
         body {
@@ -33,6 +28,11 @@
             line-height: 1.6;
             display: flex;
             flex-direction: column;
+            font-size: 16px;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         a {
@@ -48,13 +48,13 @@
             position: sticky;
             top: 0;
             z-index: 10;
-            background: rgba(253, 253, 253, 0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(222, 222, 227, 0.7);
+            background: rgba(245, 246, 247, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
         }
 
         .container {
-            width: min(1120px, 92vw);
+            width: min(1100px, 92vw);
             margin: 0 auto;
         }
 
@@ -66,16 +66,16 @@
         }
 
         .brand {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.02em;
             text-decoration: none;
             color: var(--color-text);
         }
 
         nav {
             display: flex;
-            gap: 28px;
+            gap: 24px;
         }
 
         nav a {
@@ -83,7 +83,7 @@
             font-size: 15px;
             font-weight: 500;
             color: var(--color-muted);
-            transition: color 0.2s ease;
+            transition: color 0.3s ease;
         }
 
         nav a:hover,
@@ -96,32 +96,17 @@
         }
 
         .hero {
-            padding: 120px 0 100px;
+            padding: clamp(160px, 22vh, 220px) 0 132px;
             display: grid;
-            gap: 32px;
+            gap: clamp(44px, 6vw, 72px);
             justify-items: start;
         }
 
-        .hero__eyebrow {
-            font-size: 15px;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--color-accent);
-        }
-
         .hero__title {
-            font-size: clamp(3.25rem, 6vw, 4.5rem);
+            font-size: clamp(3.5rem, 8vw, 5rem);
             font-weight: 700;
             letter-spacing: -0.04em;
             line-height: 1.08;
-            margin: 0;
-        }
-
-        .hero__description {
-            font-size: 18px;
-            max-width: 640px;
-            color: var(--color-muted);
             margin: 0;
         }
 
@@ -129,32 +114,44 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 28px;
+            padding: 12px 26px;
             border-radius: 999px;
             border: none;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             letter-spacing: -0.01em;
             cursor: pointer;
             text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        .button--ghost {
+            background: transparent;
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+        }
+
+        .button--ghost:hover,
+        .button--ghost:focus-visible {
+            background: rgba(15, 111, 236, 0.08);
+            color: var(--color-text);
         }
 
         .button--primary {
             background: var(--color-accent);
             color: #ffffff;
-            box-shadow: 0 12px 24px rgba(15, 111, 236, 0.22);
+            box-shadow: 0 14px 28px rgba(15, 111, 236, 0.18);
         }
 
         .button--primary:hover,
         .button--primary:focus-visible {
-            background: var(--color-accent-dark);
+            background: var(--color-accent-strong);
             transform: translateY(-1px);
             box-shadow: 0 16px 28px rgba(12, 84, 176, 0.28);
         }
 
         .section {
-            padding: 96px 0;
+            padding: 88px 0;
         }
 
         .section__header {
@@ -163,103 +160,236 @@
         }
 
         .section__title {
-            font-size: clamp(2.25rem, 5vw, 3rem);
-            letter-spacing: -0.02em;
+            font-size: clamp(2.2rem, 4.4vw, 3rem);
+            letter-spacing: -0.03em;
             font-weight: 650;
-            margin: 0 0 12px;
+            margin: 0 0 10px;
         }
 
         .section__description {
             margin: 0;
             color: var(--color-muted);
-            font-size: 18px;
+            font-size: 16px;
         }
 
-        .services-grid {
+        .services-list {
             display: grid;
-            gap: 32px;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 48px;
         }
 
         .service-card {
-            background: var(--color-card);
-            border-radius: 24px;
-            padding: 32px;
+            background: var(--color-surface);
+            border-radius: 28px;
+            border: 1px solid var(--color-border);
+            padding: clamp(32px, 5vw, 48px);
+            display: grid;
+            gap: clamp(28px, 4vw, 40px);
+        }
+
+        .service-card__header {
             display: flex;
-            flex-direction: column;
-            gap: 24px;
-            border: 1px solid rgba(15, 30, 60, 0.05);
-            box-shadow: var(--shadow-card);
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .service-card__icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            background: rgba(15, 111, 236, 0.1);
+            display: grid;
+            place-items: center;
+            font-size: 28px;
         }
 
         .service-card__heading {
-            margin: 0;
-            font-size: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .service-card__eyebrow {
+            font-size: 13px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
             font-weight: 600;
-            letter-spacing: -0.01em;
+            color: var(--color-muted);
+        }
+
+        .service-card__title {
+            margin: 0;
+            font-size: clamp(2.4rem, 3.6vw, 3.25rem);
+            letter-spacing: -0.03em;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .service-card__layout {
+            display: grid;
+            gap: clamp(32px, 4vw, 48px);
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+            align-items: start;
+        }
+
+        .service-card__main {
+            display: grid;
+            gap: 20px;
         }
 
         .service-card__lead {
             margin: 0;
-            color: var(--color-text);
             font-size: 18px;
+            color: var(--color-text);
+            max-width: 38ch;
         }
 
         .service-card__body {
             margin: 0;
+            font-size: 15px;
             color: var(--color-muted);
-            font-size: 16px;
+            max-width: 48ch;
         }
 
-        .service-card__meta {
+        .service-card__actions {
             display: flex;
-            flex-direction: column;
+            gap: 12px;
+        }
+
+        .service-card__details {
+            display: grid;
+            gap: 24px;
+        }
+
+        .metric-list {
+            display: grid;
             gap: 18px;
         }
 
-        .service-card__cta {
-            align-self: flex-start;
-        }
-
-        .case-list {
+        .metric {
             display: grid;
-            gap: 16px;
+            gap: 6px;
         }
 
-        .case-item {
-            border-left: 3px solid var(--color-accent);
-            padding-left: 16px;
-        }
-
-        .case-item__title {
-            font-size: 16px;
+        .metric__label {
+            font-size: 13px;
             font-weight: 600;
-            margin: 0 0 6px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-muted);
         }
 
-        .case-item__description {
-            margin: 0;
+        .metric__value {
+            font-size: clamp(2.2rem, 2.6vw, 2.8rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--color-accent);
+        }
+
+        .metric__context {
             font-size: 15px;
-            color: var(--color-muted);
+            color: var(--color-text);
         }
 
         .testimonial {
-            font-size: 15px;
-            font-style: italic;
-            color: var(--color-text);
+            background: rgba(17, 18, 22, 0.06);
+            border-radius: 22px;
+            padding: 24px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .testimonial__quote {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.45;
             margin: 0;
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .testimonial__quote::before {
+            content: "\201C";
+            position: absolute;
+            left: 0;
+            top: -6px;
+            font-size: 48px;
+            color: rgba(17, 18, 22, 0.16);
         }
 
         .testimonial__author {
-            font-style: normal;
-            font-weight: 600;
-            color: var(--color-muted);
-            margin-top: 8px;
+            margin: 0;
             font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: rgba(17, 18, 22, 0.7);
         }
 
+        .service-card--feature {
+            background: #0f6fec;
+            border: none;
+            box-shadow: 0 26px 52px rgba(15, 111, 236, 0.25);
+            color: #ffffff;
+        }
+
+        .service-card--feature .service-card__icon {
+            background: rgba(255, 255, 255, 0.16);
+            color: #ffffff;
+        }
+
+        .service-card--feature .service-card__eyebrow,
+        .service-card--feature .service-card__body,
+        .service-card--feature .metric__label,
+        .service-card--feature .testimonial,
+        .service-card--feature .testimonial__author {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .service-card--feature .testimonial {
+            background: rgba(255, 255, 255, 0.16);
+        }
+
+        .service-card--feature .metric__value {
+            color: #ffffff;
+        }
+
+        .service-card--feature .service-card__lead {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .service-card--feature .service-card__body {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .service-card--feature .service-card__actions .button--primary {
+            background: #ffffff;
+            color: #0f6fec;
+            box-shadow: none;
+        }
+
+        .service-card--feature .service-card__actions .button--primary:hover,
+        .service-card--feature .service-card__actions .button--primary:focus-visible {
+            background: #dce8ff;
+        }
+
+        .service-card--feature .service-card__note {
+            background: rgba(255, 255, 255, 0.16);
+            color: #ffffff;
+        }
+
+        .service-card__note {
+            background: rgba(17, 18, 22, 0.05);
+            border-radius: 18px;
+            padding: 20px 22px;
+            display: grid;
+            gap: 8px;
+            font-size: 15px;
+            color: var(--color-text);
+        }
+
+
         .about {
-            background: linear-gradient(140deg, #ffffff 0%, #f3f6fb 100%);
+            background: linear-gradient(160deg, rgba(255, 255, 255, 0.86), #e9edf3);
         }
 
         .about__content {
@@ -272,7 +402,7 @@
             width: 160px;
             height: 160px;
             border-radius: 50%;
-            background: rgba(15, 111, 236, 0.12);
+            background: rgba(15, 111, 236, 0.08);
             display: grid;
             place-items: center;
             font-weight: 600;
@@ -287,18 +417,18 @@
 
         .about__text p {
             margin: 0;
-            font-size: 18px;
+            font-size: 17px;
             color: var(--color-text);
             text-align: left;
         }
 
         .about__text strong {
-            color: var(--color-accent-dark);
+            color: var(--color-accent);
             font-weight: 600;
         }
 
         .contact {
-            background: var(--color-card);
+            background: var(--color-surface);
         }
 
         .contact__grid {
@@ -309,10 +439,10 @@
         }
 
         .contact__form-wrapper {
-            background: #f7f8fb;
+            background: rgba(17, 18, 22, 0.04);
             border-radius: 24px;
             padding: 36px;
-            border: 1px solid rgba(15, 30, 60, 0.06);
+            border: 1px solid rgba(17, 18, 22, 0.06);
         }
 
         form {
@@ -336,10 +466,10 @@
             padding: 14px 16px;
             border-radius: 12px;
             border: 1px solid var(--color-border);
-            font: 16px var(--font-sans);
+            font: 15px var(--font-sans);
             color: var(--color-text);
             background: #ffffff;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         input:focus,
@@ -355,12 +485,23 @@
         }
 
         footer {
-            border-top: 1px solid rgba(222, 222, 227, 0.8);
+            border-top: 1px solid rgba(17, 18, 22, 0.08);
             padding: 32px 0;
             text-align: center;
             font-size: 14px;
             color: var(--color-muted);
             background: #ffffff;
+        }
+
+        .fade-block {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-block.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         @media (max-width: 768px) {
@@ -369,7 +510,7 @@
             }
 
             .hero {
-                padding: 96px 0 72px;
+                padding: 128px 0 88px;
             }
 
             .hero__title {
@@ -378,6 +519,32 @@
 
             .section {
                 padding: 80px 0;
+            }
+
+            .service-card__icon {
+                width: 52px;
+                height: 52px;
+                font-size: 24px;
+            }
+
+            .service-card__title {
+                font-size: clamp(2.1rem, 7vw, 2.6rem);
+            }
+
+            .service-card__header {
+                flex-direction: column;
+            }
+
+            .service-card__layout {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card__lead {
+                font-size: 17px;
+            }
+
+            .service-card__actions {
+                flex-wrap: wrap;
             }
         }
     </style>
@@ -395,105 +562,154 @@
     </header>
 
     <main id="top">
-        <section class="hero container" aria-labelledby="hero-title">
-            <span class="hero__eyebrow">Trusted growth partners</span>
-            <h1 class="hero__title" id="hero-title">YouTube business solutions built to convert</h1>
-            <p class="hero__description">A senior team of strategists, analysts, and producers who have grown channels across entertainment, real estate, healthcare, and finance. We design every video to win attention and deliver measurable revenue.</p>
+        <section class="hero container fade-block" aria-labelledby="hero-title">
+            <h1 class="hero__title" id="hero-title">YouTube business solutions, from industry veterans.</h1>
             <a class="button button--primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a discovery call</a>
         </section>
 
-        <section class="section" id="services" aria-labelledby="services-title">
+        <section class="section fade-block" id="services" aria-labelledby="services-title">
             <div class="container">
                 <div class="section__header">
-                    <h2 class="section__title" id="services-title">Services tailored for growth</h2>
-                    <p class="section__description">From rapid strategic audits to fully managed video engines, every engagement is designed to find opportunity, accelerate production, and turn views into pipeline.</p>
+                    <h2 class="section__title" id="services-title">Solutions for your growth.</h2>
                 </div>
-                <div class="services-grid">
+                <div class="services-list">
+
                     <article class="service-card">
-                        <header>
-                            <h3 class="service-card__heading">Strategy Intensive</h3>
-                        </header>
-                        <p class="service-card__lead">Work directly with a senior strategist to stress test your channel and shape your next moves.</p>
-                        <p class="service-card__body">Ideal for founders and marketing teams seeking outside expertise on positioning, content cadence, and optimization. Leave with a prioritized playbook for the next 90 days.</p>
-                        <div class="service-card__meta">
-                            <div class="case-list" aria-label="Selected outcomes">
-                                <div class="case-item">
-                                    <p class="case-item__title">Lifestyle creator relaunch</p>
-                                    <p class="case-item__description">Rebuilt content pillars and thumbnails, lifting CTR by 43% and subscribers by 3x in one quarter.</p>
-                                </div>
-                                <div class="case-item">
-                                    <p class="case-item__title">B2B SaaS sprint</p>
-                                    <p class="case-item__description">Introduced demand-focused narratives that unlocked a 5x increase in demo requests.</p>
+                        <div class="service-card__header">
+                            <div class="service-card__icon" aria-hidden="true">🧭</div>
+                            <div class="service-card__heading">
+                                <span class="service-card__eyebrow">Strategy Success</span>
+                                <h3 class="service-card__title">Strategy Call</h3>
+                            </div>
+                        </div>
+                        <div class="service-card__layout">
+                            <div class="service-card__main">
+                                <p class="service-card__lead">An expert opinion on your current strategy, or answers to your strategic questions.</p>
+                                <p class="service-card__body">Perfect whether you are at the beginning of your YouTube journey or planning the next steps for an established channel.</p>
+                                <div class="service-card__actions">
+                                    <a class="button button--primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
                                 </div>
                             </div>
-                            <a class="button button--primary service-card__cta" href="https://calendly.com/your-link" target="_blank" rel="noopener">Schedule a session</a>
+                            <div class="service-card__details">
+                                <div class="metric-list">
+                                    <div class="metric">
+                                        <span class="metric__label">Channel Optimization Case Study</span>
+                                        <span class="metric__value">40%</span>
+                                        <span class="metric__context">Increase in CTR through strategic consulting</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric__label">Subscriber Momentum</span>
+                                        <span class="metric__value">200%</span>
+                                        <span class="metric__context">Growth in three months after a single strategy intensive</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial">
+                                    <p class="testimonial__quote">“The strategy call completely transformed how I approach content creation. Subscriber growth increased by 200% in just 3 months.”</p>
+                                    <p class="testimonial__author">— Sarah M., Lifestyle Creator</p>
+                                </div>
+                            </div>
                         </div>
                     </article>
 
                     <article class="service-card">
-                        <header>
-                            <h3 class="service-card__heading">Data-led Channel Audit</h3>
-                        </header>
-                        <p class="service-card__lead">A deep diagnostic of your niche, competitors, and catalog with clear actions to scale.</p>
-                        <p class="service-card__body">We map keyword demand, content velocity, retention curves, and creative patterns. You receive a segmented report, optimization roadmap, and a dashboard ready for your team.</p>
-                        <div class="service-card__meta">
-                            <div class="case-list" aria-label="Selected outcomes">
-                                <div class="case-item">
-                                    <p class="case-item__title">Tech channel expansion</p>
-                                    <p class="case-item__description">Unlocked two underserved topic clusters that now drive 65% of monthly views.</p>
-                                </div>
-                                <div class="case-item">
-                                    <p class="case-item__title">Finance publisher reset</p>
-                                    <p class="case-item__description">Refined scripting and packaging to improve watch time by 31% and CPMs by 18%.</p>
+                        <div class="service-card__header">
+                            <div class="service-card__icon" aria-hidden="true">📊</div>
+                            <div class="service-card__heading">
+                                <span class="service-card__eyebrow">Audit Results</span>
+                                <h3 class="service-card__title">Data-backed Niche and Channel Audit</h3>
+                            </div>
+                        </div>
+                        <div class="service-card__layout">
+                            <div class="service-card__main">
+                                <p class="service-card__lead">Data-backed Niche Study + Complete Channel Audit + Action Plan to grow your channel.</p>
+                                <p class="service-card__body">Get comprehensive insights into your niche opportunities and receive a detailed roadmap for channel optimization based on real data and proven strategies.</p>
+                                <div class="service-card__actions">
+                                    <a class="button button--primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
                                 </div>
                             </div>
-                            <p class="testimonial">“The audit exposed exactly where we were leaving growth on the table and how to capture it.”</p>
-                            <p class="testimonial__author">— Head of Growth, Series B fintech</p>
+                            <div class="service-card__details">
+                                <div class="metric-list">
+                                    <div class="metric">
+                                        <span class="metric__label">Tech Channel Transformation</span>
+                                        <span class="metric__value">5x</span>
+                                        <span class="metric__context">Growth unlocked by identifying untapped niche opportunities</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial">
+                                    <p class="testimonial__quote">“The audit revealed opportunities I never saw. The action plan was incredibly detailed and easy to follow. My channel finally found its direction.”</p>
+                                    <p class="testimonial__author">— Mike T., Tech Reviewer</p>
+                                </div>
+                            </div>
                         </div>
                     </article>
 
-                    <article class="service-card">
-                        <header>
-                            <h3 class="service-card__heading">Done-for-you Production</h3>
-                        </header>
-                        <p class="service-card__lead">A fully managed team handling research, scripting, design, editing, and publication.</p>
-                        <p class="service-card__body">Pair your on-camera talent with strategists and producers who have shipped videos for MrBeast, FaZe Rug, and top-performing business channels. We deliver weekly episodes engineered to convert.</p>
-                        <div class="service-card__meta">
-                            <div class="case-list" aria-label="Selected outcomes">
-                                <div class="case-item">
-                                    <p class="case-item__title">Real estate lead engine</p>
-                                    <p class="case-item__description">Generated 50+ qualified inquiries within the first quarter from a brand-new channel.</p>
-                                </div>
-                                <div class="case-item">
-                                    <p class="case-item__title">Healthcare authority build</p>
-                                    <p class="case-item__description">Grew consultations by 3x with thought-leadership storytelling and targeted promotion.</p>
+                    <article class="service-card service-card--feature">
+                        <div class="service-card__header">
+                            <div class="service-card__icon" aria-hidden="true">🎬</div>
+                            <div class="service-card__heading">
+                                <span class="service-card__eyebrow">Done-for-you Production</span>
+                                <h3 class="service-card__title">Done-for-you Solutions: Business</h3>
+                            </div>
+                        </div>
+                        <div class="service-card__layout">
+                            <div class="service-card__main">
+                                <p class="service-card__lead">We do everything, from scripting to publishing, so you can focus on shooting content. No fluff, just leads.</p>
+                                <p class="service-card__body">This solution gives you back your time while we use our expertise—honed across 80+ businesses in Real Estate, Healthcare, and Finance—to attract leads and grow your business.</p>
+                                <div class="service-card__actions">
+                                    <a class="button button--primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
                                 </div>
                             </div>
-                            <a class="button button--primary service-card__cta" href="mailto:hello@simplervideos.com">Request a proposal</a>
+                            <div class="service-card__details">
+                                <div class="metric-list">
+                                    <div class="metric">
+                                        <span class="metric__label">Steve Welty Case Study</span>
+                                        <span class="metric__value">50+</span>
+                                        <span class="metric__context">Qualified leads generated in the first quarter</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric__label">Healthcare Practice Growth</span>
+                                        <span class="metric__value">300%</span>
+                                        <span class="metric__context">Increase in consultation bookings for a healthcare client</span>
+                                    </div>
+                                </div>
+                                <div class="testimonial">
+                                    <p class="testimonial__quote">“They took care of everything while I focused on my business. The leads started coming in within weeks, and the quality was exceptional.”</p>
+                                    <p class="testimonial__author">— Dr. Jennifer K., Healthcare</p>
+                                </div>
+                                <div class="testimonial">
+                                    <p class="testimonial__quote">“Best investment I've made for my business. Their team understands what works and delivers results consistently.”</p>
+                                    <p class="testimonial__author">— Robert L., Financial Advisor</p>
+                                </div>
+                                <div class="service-card__note">
+                                    <strong>Content Strategy for Entertainment Channels</strong>
+                                    <span>Get access to the experts behind Mr Beast, FaZe Rug and many other platform-defining channels. Get in touch for more.</span>
+                                </div>
+                            </div>
                         </div>
                     </article>
+
                 </div>
             </div>
         </section>
 
-        <section class="section about" id="about" aria-labelledby="about-title">
+        <section class="section about fade-block" id="about" aria-labelledby="about-title">
             <div class="container">
                 <div class="section__header">
-                    <h2 class="section__title" id="about-title">About our collective</h2>
-                    <p class="section__description">A network of senior operators who have scaled flagship channels and franchises that defined categories.</p>
+                    <h2 class="section__title" id="about-title">About</h2>
                 </div>
                 <div class="about__content">
-                    <div class="about__image" aria-hidden="true">Team</div>
+                    <div class="about__image" aria-hidden="true">Profile Photo</div>
                     <div class="about__text">
-                        <p>For over a decade we have designed YouTube ecosystems for global brands and breakout creators. Simpler Videos exists to bring that experience to teams ready for their next stage of growth.</p>
-                        <p>Our strategists have led launches for <strong>Warner Bros</strong>, <strong>Adult Swim</strong>, and <strong>Cartoon Network</strong>, driving over one billion monthly views. The same minds shaped the success of franchises like <strong>Adventure Time</strong>, <strong>Rick and Morty</strong>, and <strong>Teletubbies</strong>.</p>
-                        <p>When you partner with us, you gain a tailored roster of researchers, writers, designers, and editors matched to your industry. We operate as an embedded growth team focused on measurable outcomes.</p>
+
+                        <p>For over a decade, I've been the strategic mind behind the YouTube success of some of the world's most iconic brands. My passion is helping creators and companies achieve their most ambitious goals on the platform.</p>
+                        <p>My journey has given me the privilege of shaping the YouTube strategy for giants like Warner Bros., Adult Swim, and Cartoon Network, contributing to a platform that generated over one billion monthly views. I've worked directly on generation-defining shows, from the magic of Adventure Time and Teletubbies to the cultural phenomenon of Rick &amp; Morty.</p>
+                        <p>I started Simpler Videos to bring that top-tier industry experience directly to you. Our solutions are fulfilled by a network of elite talent, ensuring that every aspect of your channel—from strategy to design—is handled with the expertise it deserves.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <section class="section contact fade-block" id="contact" aria-labelledby="contact-title">
             <div class="container">
                 <div class="section__header">
                     <h2 class="section__title" id="contact-title">Let’s build your next chapter</h2>
@@ -535,5 +751,23 @@
             <p>&copy; 2025 Simpler Videos. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -20%'
+        });
+
+        document.querySelectorAll('.fade-block').forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
 </body>
 </html>
