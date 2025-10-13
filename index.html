@@ -96,9 +96,9 @@
         }
 
         .hero {
-            padding: 132px 0 108px;
+            padding: clamp(160px, 22vh, 220px) 0 132px;
             display: grid;
-            gap: 36px;
+            gap: clamp(44px, 6vw, 72px);
             justify-items: start;
         }
 
@@ -174,6 +174,7 @@
 
         .services-stack {
             position: relative;
+            padding-bottom: 42vh;
         }
 
         .stacking__card {
@@ -189,6 +190,8 @@
             padding: 48px;
             position: relative;
             align-items: start;
+            transform-origin: center top;
+            will-change: transform;
         }
 
         .service-card__main {
@@ -503,8 +506,8 @@
 
         .fade-block {
             opacity: 0;
-            transform: translateY(32px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
         .fade-block.is-visible {
@@ -524,7 +527,7 @@
             }
 
             .hero {
-                padding: 92px 0 72px;
+                padding: 128px 0 88px;
             }
 
             .hero__title {
@@ -540,6 +543,10 @@
                 gap: 32px;
                 padding: 36px;
                 margin: 14vh auto;
+            }
+
+            .services-stack {
+                padding-bottom: 28vh;
             }
 
             .service-card__meta {
@@ -768,45 +775,43 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-wpRcmkQC7KViozbh7zNrWBRxDg8ZkQ/LJ6pVL0/0WIBqoxPSSW5SkdYsUH4FhuXQ7yWwkaXaYtPyuHcAcoRFhQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-KuQJn0TOcoL64meOo/1zraYhxxTIvUUCFd69Z1J7acMEwv6d6PG6czOnSBb9R5UGwEVhWfPsSt7STcgQnUM5pA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollSmoother.min.js" integrity="sha512-Ma6nK8w7nImZU3h+OI6XwOjDPmgyrvl3iDyK7rkK41q1NhngCo/zhJH0I9m9H5Ff38fjAHHfLtWy8NXU62ILdQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         if (window.gsap && window.ScrollTrigger) {
             gsap.registerPlugin(ScrollTrigger);
-            if (window.ScrollSmoother) {
-                gsap.registerPlugin(ScrollSmoother);
-                ScrollSmoother.create({
-                    smooth: 1,
-                    effects: true,
-                    normalizeScroll: true
+
+            const stack = document.querySelector('[data-stack]');
+            const cards = gsap.utils.toArray('.stacking__card');
+            const spacer = 120;
+
+            if (stack && cards.length) {
+                cards.forEach((card, index) => {
+                    gsap.set(card, {
+                        zIndex: cards.length - index,
+                        transformOrigin: 'center top'
+                    });
+
+                    ScrollTrigger.create({
+                        trigger: card,
+                        start: () => `top-=${index * spacer} center`,
+                        endTrigger: stack,
+                        end: 'bottom center',
+                        pin: true,
+                        pinSpacing: false,
+                        invalidateOnRefresh: true
+                    });
+
+                    gsap.to(card, {
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top center',
+                            end: 'bottom center',
+                            scrub: true,
+                            invalidateOnRefresh: true
+                        },
+                        scale: 0.82 + index * 0.06
+                    });
                 });
             }
-
-            const cards = gsap.utils.toArray('.stacking__card');
-            const spacer = 50;
-
-            cards.forEach((card, index) => {
-                ScrollTrigger.create({
-                    trigger: card,
-                    start: `center-=${index * spacer} center`,
-                    endTrigger: '.stacking',
-                    end: 'bottom center',
-                    pin: true,
-                    pinSpacing: false,
-                    invalidateOnRefresh: true
-                });
-
-                const scaleValue = 0.85 + index * 0.05;
-                gsap.to(card, {
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top center',
-                        end: 'bottom center',
-                        scrub: true,
-                        invalidateOnRefresh: true
-                    },
-                    scale: scaleValue
-                });
-            });
         }
 
         const observer = new IntersectionObserver((entries) => {
@@ -817,11 +822,11 @@
                 }
             });
         }, {
-            threshold: 0.25
+            threshold: 0.1,
+            rootMargin: '0px 0px -20%'
         });
 
-        document.querySelectorAll('.fade-block').forEach((element, index) => {
-            element.style.transitionDelay = `${index * 80}ms`;
+        document.querySelectorAll('.fade-block').forEach((element) => {
             observer.observe(element);
         });
     </script>
