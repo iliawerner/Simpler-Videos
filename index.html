@@ -391,14 +391,15 @@
 
         .about__content {
             display: grid;
-            gap: 32px;
+            gap: clamp(32px, 5vw, 48px);
             align-items: start;
+            grid-template-columns: minmax(0, clamp(220px, 30vw, 320px)) minmax(0, 1fr);
         }
 
         .about__image {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
+            width: clamp(220px, 30vw, 320px);
+            aspect-ratio: 1 / 1;
+            border-radius: 32px;
             background: rgba(15, 111, 236, 0.08);
             display: grid;
             place-items: center;
@@ -414,7 +415,17 @@
         .about__text {
             display: grid;
             gap: 20px;
-            max-width: 52ch;
+            max-width: 60ch;
+        }
+
+        @media (max-width: 768px) {
+            .about__content {
+                grid-template-columns: 1fr;
+            }
+
+            .about__image {
+                margin: 0 auto;
+            }
         }
 
         .about__text p {
