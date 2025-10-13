@@ -24,7 +24,7 @@
         body {
             margin: 0;
             font-family: var(--font-sans);
-            background: var(--color-bg);
+            background: #ffffff;
             color: var(--color-text);
             line-height: 1.6;
             display: flex;
@@ -104,29 +104,7 @@
             gap: clamp(44px, 6vw, 72px);
             justify-items: start;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: clamp(-220px, -12vh, -120px);
-            right: clamp(-260px, -18vw, -140px);
-            width: clamp(480px, 58vw, 720px);
-            aspect-ratio: 1;
-            background: radial-gradient(circle at center, rgba(15, 111, 236, 0.18) 0%, rgba(15, 111, 236, 0) 70%);
-            z-index: -1;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            bottom: clamp(-180px, -12vh, -60px);
-            left: clamp(-220px, -16vw, -120px);
-            width: clamp(360px, 42vw, 520px);
-            height: clamp(360px, 42vw, 520px);
-            background: radial-gradient(circle at top right, rgba(15, 111, 236, 0.12) 0%, rgba(15, 111, 236, 0) 65%);
-            filter: blur(0.5px);
-            z-index: -1;
+            background: #ffffff;
         }
 
         .hero__title {
@@ -142,7 +120,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 26px;
+            padding: 14px 30px;
             border-radius: 999px;
             border: none;
             font-size: 15px;
@@ -150,7 +128,7 @@
             letter-spacing: -0.01em;
             cursor: pointer;
             text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.35s ease;
         }
 
         .button--ghost {
@@ -166,16 +144,21 @@
         }
 
         .button--primary {
-            background: var(--color-accent);
+            background: linear-gradient(140deg, #0f6fec 0%, #2a82ff 100%);
             color: #ffffff;
-            box-shadow: 0 14px 28px rgba(15, 111, 236, 0.18);
+            box-shadow: 0 18px 34px rgba(15, 111, 236, 0.22);
         }
 
         .button--primary:hover,
         .button--primary:focus-visible {
-            background: var(--color-accent-strong);
-            transform: translateY(-1px);
-            box-shadow: 0 16px 28px rgba(12, 84, 176, 0.28);
+            background: linear-gradient(140deg, #2a82ff 0%, #0f6fec 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 22px 38px rgba(15, 111, 236, 0.28);
+        }
+
+        .button--primary:active {
+            transform: translateY(0);
+            box-shadow: 0 12px 24px rgba(15, 111, 236, 0.2);
         }
 
         .section {
@@ -413,24 +396,30 @@
 
 
         .about {
-            background: linear-gradient(160deg, rgba(255, 255, 255, 0.86), #e9edf3);
+            background: linear-gradient(160deg, rgba(255, 255, 255, 0.92), #e3e8ef);
+        }
+
+        .about .section__header {
+            margin-bottom: clamp(60px, 10vw, 92px);
+            text-align: left;
         }
 
         .about__content {
             display: grid;
-            gap: clamp(32px, 5vw, 48px);
+            gap: clamp(36px, 6vw, 72px);
             align-items: start;
-            grid-template-columns: minmax(0, clamp(220px, 30vw, 320px)) minmax(0, 1fr);
+            grid-template-columns: minmax(0, clamp(260px, 32vw, 360px)) minmax(0, 1fr);
         }
 
         .about__image {
-            width: clamp(220px, 30vw, 320px);
+            width: clamp(260px, 32vw, 360px);
             aspect-ratio: 1 / 1;
-            border-radius: 32px;
-            background: rgba(15, 111, 236, 0.08);
+            border-radius: 36px;
+            background: rgba(15, 111, 236, 0.06);
             display: grid;
             place-items: center;
             overflow: hidden;
+            box-shadow: 0 28px 46px rgba(15, 111, 236, 0.12);
         }
 
         .about__image img {
@@ -441,17 +430,22 @@
 
         .about__text {
             display: grid;
-            gap: 20px;
-            max-width: 60ch;
+            gap: 24px;
+            max-width: 62ch;
         }
 
         @media (max-width: 768px) {
             .about__content {
                 grid-template-columns: 1fr;
+                justify-items: center;
             }
 
             .about__image {
-                margin: 0 auto;
+                margin: 0 auto 32px;
+            }
+
+            .about .section__header {
+                text-align: center;
             }
         }
 
@@ -468,59 +462,84 @@
         }
 
         .contact {
-            background: var(--color-surface);
+            background: #f6f8fc;
         }
 
         .contact__grid {
             display: grid;
-            gap: 40px;
+            gap: clamp(36px, 6vw, 52px);
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             align-items: start;
         }
 
         .contact__form-wrapper {
-            background: rgba(17, 18, 22, 0.04);
-            border-radius: 24px;
-            padding: 36px;
+            background: var(--color-surface);
+            border-radius: 28px;
+            padding: clamp(32px, 5vw, 44px);
             border: 1px solid rgba(17, 18, 22, 0.06);
+            box-shadow: 0 24px 48px rgba(12, 28, 64, 0.08);
         }
 
         form {
             display: grid;
-            gap: 20px;
+            gap: 24px;
         }
 
-        .form-group {
-            display: grid;
-            gap: 8px;
-        }
-
-        label {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--color-text);
+        .form-field {
+            position: relative;
         }
 
         input,
         textarea {
-            padding: 14px 16px;
-            border-radius: 12px;
-            border: 1px solid var(--color-border);
+            width: 100%;
+            padding: 22px 18px 10px;
+            border-radius: 14px;
+            border: 1px solid rgba(17, 18, 22, 0.12);
             font: 15px var(--font-sans);
             color: var(--color-text);
-            background: #ffffff;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(255, 255, 255, 0.92);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: transparent;
         }
 
         input:focus,
         textarea:focus {
             outline: none;
             border-color: var(--color-accent);
-            box-shadow: 0 0 0 3px rgba(15, 111, 236, 0.12);
+            box-shadow: 0 0 0 4px rgba(15, 111, 236, 0.14);
+            background: #ffffff;
+        }
+
+        .form-field label {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--color-muted);
+            letter-spacing: -0.01em;
+            background: var(--color-surface);
+            padding: 0 6px;
+            transition: transform 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+            pointer-events: none;
+        }
+
+        input:focus + label,
+        input:not(:placeholder-shown) + label,
+        textarea:focus + label,
+        textarea:not(:placeholder-shown) + label {
+            transform: translateY(-140%);
+            font-size: 12px;
+            color: var(--color-accent);
         }
 
         textarea {
-            min-height: 150px;
+            min-height: 160px;
             resize: vertical;
         }
 
@@ -562,19 +581,6 @@
 
             .hero {
                 padding: 132px 0 96px;
-            }
-
-            .hero::before {
-                right: -240px;
-                top: -260px;
-                width: 480px;
-            }
-
-            .hero::after {
-                left: -220px;
-                bottom: -240px;
-                width: 420px;
-                height: 420px;
             }
 
             .hero__title {
@@ -786,21 +792,21 @@
                     </div>
                     <div class="contact__form-wrapper">
                         <form>
-                            <div class="form-group">
+                            <div class="form-field">
+                                <input id="name" name="name" type="text" autocomplete="name" required placeholder=" ">
                                 <label for="name">Name</label>
-                                <input id="name" name="name" type="text" autocomplete="name" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-field">
+                                <input id="email" name="email" type="email" autocomplete="email" required placeholder=" ">
                                 <label for="email">Email</label>
-                                <input id="email" name="email" type="email" autocomplete="email" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-field">
+                                <input id="company" name="company" type="text" autocomplete="organization" placeholder=" ">
                                 <label for="company">Company or Channel</label>
-                                <input id="company" name="company" type="text" autocomplete="organization">
                             </div>
-                            <div class="form-group">
+                            <div class="form-field">
+                                <textarea id="message" name="message" required placeholder=" "></textarea>
                                 <label for="message">How can we help?</label>
-                                <textarea id="message" name="message" required></textarea>
                             </div>
                             <button type="submit" class="button button--primary">Send message</button>
                         </form>
