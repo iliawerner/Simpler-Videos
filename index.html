@@ -99,7 +99,7 @@
         .hero {
             position: relative;
             isolation: isolate;
-            padding: clamp(160px, 22vh, 220px) 0 clamp(120px, 18vh, 180px);
+            padding: clamp(120px, 18vh, 180px) 0 clamp(96px, 16vh, 140px);
             overflow: visible;
             background: #ffffff;
         }
@@ -110,7 +110,7 @@
             display: grid;
             grid-template-columns: minmax(0, 0.58fr) minmax(0, 0.42fr);
             gap: clamp(40px, 6vw, 64px);
-            align-items: center;
+            align-items: start;
         }
 
         .hero__content {
@@ -120,7 +120,7 @@
         }
 
         .hero__title {
-            font-size: clamp(3.6rem, 8.6vw, 5.5rem);
+            font-size: clamp(2.9rem, 6.9vw, 4.4rem);
             font-weight: 700;
             letter-spacing: -0.04em;
             line-height: 1.08;
@@ -145,6 +145,7 @@
 
         .hero__visual {
             position: relative;
+            align-self: start;
         }
 
         .hero__visual-placeholder {
