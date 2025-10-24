@@ -137,19 +137,10 @@
             text-align: left;
         }
 
-        .hero__form {
-            width: 100%;
-            display: grid;
-            gap: 18px;
-        }
-
-        .hero__form .button {
-            width: 100%;
-            justify-content: center;
-        }
-
-        .hero__form textarea {
-            min-height: 140px;
+        .hero__actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         .hero__visual {
@@ -716,17 +707,9 @@
                 <div class="hero__content">
                     <h1 class="hero__title" id="hero-title">YouTube Solutions From industry Veterans.</h1>
                     <p class="hero__description">We offer bespoke YouTube strategies and solutions, for creators and businesses.</p>
-                    <form class="hero__form">
-                        <div class="form-field">
-                            <input id="hero-email" name="email" type="email" autocomplete="email" required placeholder=" ">
-                            <label for="hero-email">Email</label>
-                        </div>
-                        <div class="form-field">
-                            <textarea id="hero-message" name="message" placeholder=" "></textarea>
-                            <label for="hero-message">Your message (optional)</label>
-                        </div>
-                        <button type="submit" class="button button--primary">Get in touch</button>
-                    </form>
+                    <div class="hero__actions">
+                        <a class="button button--primary" href="#contact">Get in touch</a>
+                    </div>
                 </div>
                 <div class="hero__visual" aria-hidden="true">
                     <div class="hero__visual-placeholder">Placeholder for hero visual</div>
