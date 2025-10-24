@@ -104,21 +104,6 @@
             background: #ffffff;
         }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('/assets/Gemini_Generated_Image_7sqkbn7sqkbn7sqk.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.15;
-            z-index: -1;
-        }
-
         .hero__layout {
             width: min(1100px, 92vw);
             margin: 0 auto;
@@ -126,8 +111,6 @@
             grid-template-columns: minmax(0, 0.58fr) minmax(0, 0.42fr);
             gap: clamp(40px, 6vw, 64px);
             align-items: start;
-            position: relative;
-            z-index: 1;
         }
 
         .hero__content {
@@ -137,12 +120,12 @@
         }
 
         .hero__title {
-            font-size: clamp(2.9rem, 6.9vw, 4.4rem);
+            font-size: clamp(2.5rem, 5.8vw, 3.6rem);
             font-weight: 700;
             letter-spacing: -0.04em;
-            line-height: 1.08;
+            line-height: 1.15;
             margin: 0;
-            max-width: 14ch;
+            max-width: 18ch;
             text-align: left;
         }
 
@@ -165,19 +148,12 @@
             align-self: start;
         }
 
-        .hero__visual-placeholder {
+        .hero__visual-image {
+            width: 100%;
+            height: auto;
             border-radius: 32px;
-            padding: clamp(32px, 5vw, 48px);
-            background: linear-gradient(135deg, rgba(15, 111, 236, 0.12), rgba(15, 111, 236, 0.32));
-            min-height: clamp(280px, 36vw, 420px);
-            display: grid;
-            place-content: center;
-            text-align: center;
-            border: 1px solid rgba(15, 111, 236, 0.22);
-            box-shadow: 0 28px 52px rgba(15, 111, 236, 0.22);
-            color: rgba(17, 18, 22, 0.72);
-            font-weight: 600;
-            letter-spacing: -0.01em;
+            position: relative;
+            z-index: 1;
         }
 
         .button {
@@ -723,14 +699,14 @@
         <section class="hero fade-block" aria-labelledby="hero-title">
             <div class="hero__layout">
                 <div class="hero__content">
-                    <h1 class="hero__title" id="hero-title">YouTube Solutions From industry Veterans.</h1>
+                    <h1 class="hero__title" id="hero-title">YouTube Solutions From YouTube Veterans</h1>
                     <p class="hero__description">We offer bespoke YouTube strategies and solutions, for creators and businesses.</p>
                     <div class="hero__actions">
                         <a class="button button--primary" href="#contact">Get in touch</a>
                     </div>
                 </div>
                 <div class="hero__visual" aria-hidden="true">
-                    <div class="hero__visual-placeholder">Placeholder for hero visual</div>
+                    <img src="/assets/Gemini_Generated_Image_7sqkbn7sqkbn7sqk.png" alt="" class="hero__visual-image">
                 </div>
             </div>
         </section>
